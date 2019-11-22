@@ -1,5 +1,5 @@
 import React from "react";
-// import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
 
 /*
@@ -22,11 +22,32 @@ function App() {
       </header>
     </div>
   );
-} 
+}
 */
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
 
-function App() {
-  return <h1>Hello, React</h1>;
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button
+          onClick={() => {
+            this.handleClick();
+          }}
+        >
+          +
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
